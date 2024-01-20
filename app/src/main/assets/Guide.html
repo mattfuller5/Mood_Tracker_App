@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Guide</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* CSS styles for navigation links */
+        .component-link {
+            display: block;
+            padding: 3vw;
+            background-color: #f2f2f2;
+            text-decoration: none;
+            color: #000;
+            font-weight: bold;
+            margin-bottom: 2vh;
+        }
+
+        .component-link:hover,
+        .component-link.active {
+            background-color: #ddd;
+        }
+
+        /* CSS styles for components */
+        .component {
+            display: none;
+            padding: 5vw;
+            background-color: #fff;
+            border: 1px solid #ddd;
+        }
+
+        .component img {
+            width: 80%;
+            max-width: 500px;
+            height: auto;
+            margin: 0 auto;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        // jQuery code for navigation highlighting and component toggling
+        $(document).ready(function() {
+            $('.component-link').click(function(e) {
+                e.preventDefault();
+                var componentId = $(this).attr('href').substring(1);
+                highlightComponent(componentId);
+            });
+
+            function highlightComponent(componentId) {
+                $('.component-link').removeClass('active');
+                $('.component').hide();
+
+                var link = $('a[href="#' + componentId + '"]');
+                var component = $('#' + componentId);
+
+                link.addClass('active');
+                component.show();
+            }
+        });
+    </script>
+</head>
+<body>
+<h1>MoodMate - User Guide</h1>
+<p>Welcome to My App! This guide will help you get started and learn how to use the app.</p>
+
+<!-- Navigation links -->
+<a class="component-link active" href="#component1">Inputting Today's Mood</a>
+<a class="component-link" href="#component2">Home Screen</a>
+<a class="component-link" href="#component3">Mood Details</a>
+<a class="component-link" href="#component4">Sharing Moods</a>
+<a class="component-link" href="#component5">Well-being</a>
+<a class="component-link" href="#component6">Notifications</a>
+
+<!-- Components -->
+<div id="component1" class="component" style="display: block; text-align: center;">
+    <h2>Inputting Today's Mood</h2>
+    <p>To start, you can enter your mood by inputting the following details on the main page:</p>
+    <ul>
+        <li>Today's Mood Rating (5-1)</li>
+        <li>Date of Mood (DD-MM-YYYY)</li>
+        <li>Notes</li>
+    </ul>
+    <img src="file:///android_asset/mood_input.png" alt="Inputting Today's Mood">
+</div>
+
+<div id="component2" class="component" style="display: none; text-align: center;">
+    <h2>Home Screen</h2>
+    <p>Each mood is displayed on the Home Screen, showing the date and rating for that day.</p>
+    <img src="file:///android_asset/home_screen.png" alt="Home Screen">
+</div>
+
+<div id="component3" class="component" style="display: none; text-align: center;">
+    <h2>Mood Details</h2>
+    <p>Clicking on a specific mood on the Home Screen opens up a detail page displaying the date and any notes attached to that mood.</p>
+    <img src="file:///android_asset/mood_details.png" alt="Mood Details">
+</div>
+
+<div id="component4" class="component" style="display: none; text-align: center;">
+    <h2>Sharing Moods</h2>
+    <p>Clicking on the Share button on the Mood Details Screen allows the user to share their mood on a range of other apps.</p>
+    <img src="file:///android_asset/share_mood.png" alt="Sharing Moods">
+</div>
+
+<div id="component5" class="component" style="display: none; text-align: center;">
+    <h2>Well-being</h2>
+    <p>The Well-being screen displays different ways the user can improve their well-being. Suggestions are shown in a random order.</p>
+    <img src="file:///android_asset/wellbeing_screen.png" alt="Well-being">
+</div>
+
+<div id="component6" class="component" style="display: none; text-align: center;">
+    <h2>Notifications</h2>
+    <p>A reminder notification is sent out every day at 8 PM to prompt the user to input their mood for the day.</p>
+</div>
+
+
+</body>
+</html>
+
+
+
